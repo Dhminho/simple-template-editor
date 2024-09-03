@@ -29,12 +29,17 @@
       const file = event.target.files[0];
       const reader = new FileReader();
       reader.onload = function(e) {
-        document.getElementById('uploaded-image').src = e.target.result;
+        const img = document.getElementById('uploaded-image');
+        img.src = e.target.result;
+        img.style.transform = 'translate(0, 0) scale(1)';
+        img.setAttribute('data-x', 0);
+        img.setAttribute('data-y', 0);
+        img.setAttribute('data-scale', 1);
       };
       reader.readAsDataURL(file);
     });
 
-    // كود لتحريك الصورة باستخدام Interact.js
+    // كود لتحريك وتكبير الصورة باستخدام Interact.js
     interact('#uploaded-image')
       .draggable({
         inertia: true,
@@ -46,6 +51,16 @@
         ],
         autoScroll: true,
         onmove: dragMoveListener
+      })
+      .gesturable({
+        onmove: function (event) {
+          var target = event.target;
+          var scale = (parseFloat(target.getAttribute('data-scale')) || 1) * (1 + event.ds);
+
+          target.style.transform = `translate(${target.getAttribute('data-x')}px, ${target.getAttribute('data-y')}px) scale(${scale})`;
+
+          target.setAttribute('data-scale', scale);
+        }
       });
 
     function dragMoveListener(event) {
@@ -53,7 +68,7 @@
       var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
       var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
-      target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+      target.style.transform = `translate(${x}px, ${y}px) scale(${target.getAttribute('data-scale')})`;
 
       target.setAttribute('data-x', x);
       target.setAttribute('data-y', y);
