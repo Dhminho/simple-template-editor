@@ -8,6 +8,8 @@
   
   <!-- إضافة مكتبة html2canvas -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <!-- إضافة مكتبة Interact.js -->
+  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
 </head>
 <body>
   <div id="editor">
@@ -21,5 +23,41 @@
   
   <!-- تضمين كود JavaScript الخاص بك -->
   <script src="script.js"></script>
+  <script>
+    // كود لتحميل الصورة
+    document.getElementById('image-upload').addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('uploaded-image').src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+
+    // كود لتحريك الصورة باستخدام Interact.js
+    interact('#uploaded-image')
+      .draggable({
+        inertia: true,
+        modifiers: [
+          interact.modifiers.restrictRect({
+            restriction: 'parent',
+            endOnly: true
+          })
+        ],
+        autoScroll: true,
+        onmove: dragMoveListener
+      });
+
+    function dragMoveListener(event) {
+      var target = event.target;
+      var x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+      var y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+      target.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+
+      target.setAttribute('data-x', x);
+      target.setAttribute('data-y', y);
+    }
+  </script>
 </body>
 </html>
