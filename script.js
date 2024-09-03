@@ -14,6 +14,11 @@ document.getElementById('download-button').addEventListener('click', function() 
     backgroundColor: null, // تعيين الخلفية كـ null لجعلها شفافة
     useCORS: true // استخدام CORS للسماح بتحميل الصور من مصادر خارجية
   }).then(canvas => {
+    const ctx = canvas.getContext('2d');
+    ctx.globalCompositeOperation = 'destination-over';
+    ctx.fillStyle = 'rgba(255, 255, 255, 0)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
     const link = document.createElement('a');
     link.href = canvas.toDataURL('image/png');
     link.download = 'template.png';
