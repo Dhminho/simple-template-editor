@@ -28,4 +28,12 @@ document.getElementById('download-button').addEventListener('click', function() 
   html2canvas(document.querySelector('#editor'), {
     backgroundColor: null, // تعيين الخلفية كـ null لجعلها شفافة
     useCORS: true // استخدام CORS للسماح بتحميل الصور من مصادر خارجية
-  }).then
+  }).then(canvas => {
+    downloadButton.style.display = 'block'; // إعادة إظهار زر التحميل
+
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/png');
+    link.download = 'template.png';
+    link.click();
+  });
+});
