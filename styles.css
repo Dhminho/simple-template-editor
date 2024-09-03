@@ -57,6 +57,10 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover; /* جعل الصورة تغطي كامل المربع بشكل متناسب */
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: move; /* تغيير شكل المؤشر عند السحب */
 }
 
 #image-upload {
