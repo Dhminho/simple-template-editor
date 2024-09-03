@@ -41,8 +41,8 @@ body {
 }
 
 #image-square {
-  width: 100%; /* ضبط العرض ليكون 100% من العرض المتاح */
-  height: auto; /* ضبط الارتفاع ليكون تلقائي بناءً على العرض */
+  width: 575px; /* ضبط العرض ليكون 575px */
+  height: 575px; /* ضبط الارتفاع ليكون 575px */
   position: relative;
   border: none;
   border-radius: 5px;
@@ -59,6 +59,7 @@ body {
   object-fit: cover; /* جعل الصورة تغطي كامل المربع مع الحفاظ على نسبها الأصلية */
   object-position: center; /* ضبط موضع الصورة في المركز */
 }
+
 
 
 #image-upload {
