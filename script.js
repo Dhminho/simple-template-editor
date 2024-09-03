@@ -10,7 +10,7 @@ document.getElementById('image-upload').addEventListener('change', function(even
 });
 
 document.getElementById('download-button').addEventListener('click', function() {
-  html2canvas(document.querySelector('#editor')).then(canvas => {
+  html2canvas(document.querySelector('#editor'), { backgroundColor: null }).then(canvas => {
     const link = document.createElement('a');
     link.href = canvas.toDataURL('image/png');
     link.download = 'template.png';
