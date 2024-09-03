@@ -15,8 +15,8 @@
   <div id="editor">
     <div id="text-rect" contenteditable="true">أدخل النص هنا</div>
     <div id="image-square">
-      <img id="uploaded-image" src="placeholder.png" alt="اختر صورة" style="z-index: 1;">
-      <input type="file" id="image-upload" accept="image/*" style="z-index: 0;">
+      <img id="uploaded-image" src="placeholder.png" alt="اختر صورة" style="display: none;">
+      <input type="file" id="image-upload" accept="image/*">
     </div>
     <button id="download-button">تحميل الصورة النهائية</button>
   </div>
@@ -31,10 +31,12 @@
       reader.onload = function(e) {
         const img = document.getElementById('uploaded-image');
         img.src = e.target.result;
+        img.style.display = 'block';
         img.style.transform = 'translate(0, 0) scale(1)';
         img.setAttribute('data-x', 0);
         img.setAttribute('data-y', 0);
         img.setAttribute('data-scale', 1);
+        document.getElementById('image-upload').style.display = 'none';
       };
       reader.readAsDataURL(file);
     });
