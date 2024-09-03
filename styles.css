@@ -54,13 +54,10 @@ body {
 }
 
 #uploaded-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* جعل الصورة تغطي كامل المربع مع الحفاظ على نسبها الأصلية */
-  object-position: center; /* ضبط موضع الصورة في المركز */
+  max-width: none; /* السماح للصورة بتجاوز حدود المربع */
+  max-height: none; /* السماح للصورة بتجاوز حدود المربع */
+  position: absolute; /* جعل الصورة قابلة للتحريك */
 }
-
-
 
 #image-upload {
   position: absolute;
