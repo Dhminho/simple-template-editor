@@ -56,7 +56,7 @@ body {
 #uploaded-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* جعل الصورة تغطي كامل المربع بشكل متناسب */
+  object-fit: contain; /* جعل الصورة تتناسب داخل المربع بشكل متناسب */
 }
 
 #image-upload {
