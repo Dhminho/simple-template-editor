@@ -1,5 +1,11 @@
+@font-face {
+  font-family: 'Lama Sans';
+  src: url('fonts/LamaSans-ExtraBold.ttf') format('truetype');
+  font-weight: bold;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Lama Sans', Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
