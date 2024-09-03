@@ -41,16 +41,16 @@ body {
 }
 
 #image-square {
-  width: 575px;
-  height: 575px;
+  width: 100%; /* ضبط العرض ليكون 100% من العرض المتاح */
+  height: auto; /* ضبط الارتفاع ليكون تلقائي بناءً على العرض */
   position: relative;
-  border: none; /* إزالة الحدود */
+  border: none;
   border-radius: 5px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: transparent; /* جعل خلفية المربع الخاص بالصورة شفافة */
+  background-color: transparent;
 }
 
 #uploaded-image {
