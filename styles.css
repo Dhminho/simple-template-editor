@@ -1,36 +1,55 @@
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
-  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* خلفية الصفحة */
+  margin: 0;
 }
 
 #editor {
-  display: inline-block;
-  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* مسافة بين العناصر */
+  background-color: white;
   padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #text-rect {
-  width: 300px;
-  height: 100px;
-  border: 1px solid #000;
-  margin-bottom: 20px;
-  padding: 10px;
+  width: 575px;
+  height: 75px;
+  background-color: #e9ba28; /* اللون الجديد للمستطيل */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 5px;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
+  color: black; /* لون النص داخل المستطيل */
+  margin-bottom: 10px;
 }
 
 #image-square {
-  width: 300px;
-  height: 300px;
-  border: 1px solid #000;
+  width: 575px;
+  height: 575px;
   position: relative;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* لون خلفية للمربع الخاص بالصورة */
 }
 
 #uploaded-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 #image-upload {
@@ -44,7 +63,15 @@ body {
 }
 
 #download-button {
-  margin-top: 20px;
+  background-color: #e9ba28;
+  color: white;
   padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   font-size: 16px;
+}
+
+#download-button:hover {
+  background-color: #d0a123;
 }
