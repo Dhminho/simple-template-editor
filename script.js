@@ -9,6 +9,18 @@ document.getElementById('image-upload').addEventListener('change', function(even
   }
 });
 
+document.getElementById('text-rect').addEventListener('focus', function() {
+  if (this.innerText === 'أدخل النص هنا') {
+    this.innerText = '';
+  }
+});
+
+document.getElementById('text-rect').addEventListener('blur', function() {
+  if (this.innerText === '') {
+    this.innerText = 'أدخل النص هنا';
+  }
+});
+
 document.getElementById('download-button').addEventListener('click', function() {
   const downloadButton = document.getElementById('download-button');
   downloadButton.style.display = 'none'; // إخفاء زر التحميل مؤقتًا
@@ -16,12 +28,4 @@ document.getElementById('download-button').addEventListener('click', function() 
   html2canvas(document.querySelector('#editor'), {
     backgroundColor: null, // تعيين الخلفية كـ null لجعلها شفافة
     useCORS: true // استخدام CORS للسماح بتحميل الصور من مصادر خارجية
-  }).then(canvas => {
-    downloadButton.style.display = 'block'; // إعادة إظهار زر التحميل
-
-    const link = document.createElement('a');
-    link.href = canvas.toDataURL('image/png');
-    link.download = 'template.png';
-    link.click();
-  });
-});
+  }).then
