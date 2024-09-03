@@ -1,17 +1,19 @@
 document.getElementById('image-upload').addEventListener('change', function(event) {
-  const reader = new FileReader();
-  reader.onload = function() {
-    const image = document.getElementById('uploaded-image');
-    image.src = reader.result;
-  };
-  reader.readAsDataURL(event.target.files[0]);
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('uploaded-image').src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
 });
 
 document.getElementById('download-button').addEventListener('click', function() {
-  html2canvas(document.querySelector("#editor")).then(canvas => {
-    let link = document.createElement('a');
+  html2canvas(document.querySelector('#editor')).then(canvas => {
+    const link = document.createElement('a');
+    link.href = canvas.toDataURL('image/png');
     link.download = 'template.png';
-    link.href = canvas.toDataURL();
     link.click();
   });
 });
