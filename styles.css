@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: transparent; /* إزالة الخلفية */
+  background-color: transparent; /* جعل خلفية الصفحة شفافة */
   margin: 0;
 }
 
@@ -19,7 +19,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 10px; /* مسافة بين العناصر */
-  background-color: white;
+  background-color: transparent; /* جعل خلفية المحرر شفافة */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -35,7 +35,7 @@ body {
   border: 2px solid #ccc;
   border-radius: 5px;
   text-align: center;
-  font-size: 40px;
+  font-size: 20px;
   color: black; /* لون النص داخل المستطيل */
   margin-bottom: 10px;
 }
@@ -50,7 +50,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f0f0f0; /* لون خلفية للمربع الخاص بالصورة */
+  background-color: transparent; /* جعل خلفية المربع الخاص بالصورة شفافة */
 }
 
 #uploaded-image {
